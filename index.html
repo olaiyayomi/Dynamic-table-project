@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Dynamic Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #333;
+      text-align: center;
+    }
+
+    h2 {
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #2575fc;
+      color: #fff;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    div {
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #fff;
+      width: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #2575fc;
+      box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+    }
+
+    button {
+      background-color: #2575fc;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1d63cb;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Dynamic Table</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Rows will be added here -->
+    </tbody>
+  </table>
+
+  <div>
+    <input type="text" id="nameInput" placeholder="Name">
+    <input type="number" id="ageInput" placeholder="Age">
+    <button id="addRowBtn">Add Row</button>
+  </div>
+
+  <footer>
+    Developed by Olaiya Yomi Williams
+  </footer>
+
+  <script>
+    document.getElementById("addRowBtn").onclick = function () {
+      const name = document.getElementById("nameInput").value;
+      const age = document.getElementById("ageInput").value;
+
+      if (!name || !age) {
+        alert("Please enter both name and age.");
+        return;
+      }
+
+      const tableBody = document.getElementById("tableBody");
+      const row = tableBody.insertRow();
+
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${age}</td>
+        <td><button onclick="this.parentElement.parentElement.remove()">Delete</button></td>
+      `;
+
+      document.getElementById("nameInput").value = "";
+      document.getElementById("ageInput").value = "";
+    };
+  </script>
+
+</body>
+</html>
