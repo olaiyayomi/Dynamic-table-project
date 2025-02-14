@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+
+  <h2>Dynamic Table</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Rows will be added here -->
+    </tbody>
+  </table>
+
+  <div class="input-container">
+    <input type="text" id="nameInput" placeholder="Enter Name">
+    <input type="number" id="ageInput" placeholder="Enter Age">
+    <button id="addRowBtn">Add Row</button>
+    <p class="error-message" id="errorMsg">Input fields must not be empty!</p>
+  </div>
+
+  <footer>
+    Developed by Olaiya Yomi Williams
+  </footer>
+
+  <script src="main.js">
+  </script>
+
+</body>
+</html>
